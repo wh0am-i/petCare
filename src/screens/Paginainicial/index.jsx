@@ -1,0 +1,61 @@
+import React from 'react'
+import { View, Text, Image, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native'
+import logo from '../../assets/logo.png';
+import email from '../../assets/email.png';
+import senha from '../../assets/senha.png';
+
+export default function PaginaInicial({ navigation }) {
+  const inputs = [
+    {id: 1, imagem: email, placeholder: ' Email...'},
+    {id: 2, imagem: senha, placeholder: ' Senha...'}
+  ]
+
+  return (
+    <View style={styles.container}>
+      <Image source={logo} style={{width: 425, height: 425, marginTop: 50}} />
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.botaoDois}>Entrar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+            <Text style={styles.botaoUm}>Cadastrar</Text>
+        </TouchableOpacity>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textInput: { 
+    flexDirection: 'row',
+    marginVertical: 10,
+    justifyContent: 'space-between',
+    borderBottomWidth: 2,
+    borderBottomColor: '#D9D9D9',
+    paddingHorizontal: 100,
+    color: '#fff',
+  },
+  botaoUm: { 
+    color: '#fff',
+    backgroundColor: '#4780B7',
+    fontSize: 20,
+    padding: 10,
+    paddingHorizontal: 100,
+    marginBottom: 120,
+    borderRadius: 5
+  },
+  botaoDois: { 
+    color: '#fff',
+    backgroundColor: '#4780B7',
+    fontSize: 20,
+    padding: 10,
+    paddingHorizontal: 118,
+    marginBottom: 20,
+    borderRadius: 5
+  },
+});
+
