@@ -29,6 +29,7 @@ const styles =StyleSheet.create({
   h1:{
     fontSize: 40,
     color: '#6E23B4',
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    marginTop: 100
   }
 })
