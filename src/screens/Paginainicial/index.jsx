@@ -11,7 +11,7 @@ export default function PaginaInicial({ navigation }) {
   ]
 
   return (
-    <View style={styles.container}>
+    <View style={styles.containerBotoes}>
       <Image source={logo} style={{width: 425, height: 425, marginTop: 50}} />
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={styles.botaoDois}>Entrar</Text>
@@ -24,11 +24,11 @@ export default function PaginaInicial({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerBotoes: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   textInput: { 
     flexDirection: 'row',

@@ -25,14 +25,14 @@ export default function Login({ navigation }) {
           )}
           keyExtractor={item => item.id}
         />
-        <TouchableOpacity onPress={() => navigation.navigate('TelaInicial')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CarteirinhaPet')}>
             <Text style={styles.botao}>Entrar</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+        <TouchableOpacity style={{ marginBottom: 120, marginTop: 20 }} onPress={() => navigation.navigate('Cadastro')}>
             <Text style={styles}>Não possui cadastro?</Text>
         </TouchableOpacity>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     padding: 10,
     paddingHorizontal: 100,
-    marginBottom: 120,
     borderRadius: 5
   },
 });

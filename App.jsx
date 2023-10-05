@@ -15,10 +15,10 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='CarteirinhaPet' screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName='TelaInicial' screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='TelaInicial' component={PaginaInicial} />
         <Stack.Screen name='Cadastro' component={Cadastro} />
         <Stack.Screen name='Login' component={Login} />
-        <Stack.Screen name='TelaInicial' component={PaginaInicial} />
         <Stack.Screen name='ProdutosVenda' component={ProdutosVenda} />
         <Stack.Screen name='Veterinario' component={Veterinario} />
         <Stack.Screen name='CadastraPet' component={CadastraPet} />
