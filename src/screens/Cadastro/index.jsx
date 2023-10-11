@@ -1,20 +1,24 @@
 import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native'
 import logo from '../../assets/logo.png';
-import usuario from '../../assets/usuario.png';
-import email from '../../assets/email.png';
-import senha from '../../assets/senha.png';
-import { db } from '../../db/db'
+import usuarioImg from '../../assets/usuario.png';
+import emailImg from '../../assets/email.png';
+import senhaImg from '../../assets/senha.png';
+import CadastraUser from '../../db/db.jsx'
+const db = new CadastraUser();
 
 export default function Cadastro({ navigation }) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
   function cadastra() {
-    if (nome != "" && email != "" && senha != "") {
+    if (nome != '' && email != '' && senha != '') {
       if (email.includes("@gmail.com" || "@hotmail.com")) {
         if (senha.length >= 8) {
+          if(db.cadastra(nome, email, senha)){
             navigation.navigate('Login')
+          }
         }
         else {
           alert("A senha deve ter 8 ou mais caracteres")
@@ -27,12 +31,6 @@ export default function Cadastro({ navigation }) {
     else {
       alert("campo vazio")
     }
-
-    /*
-    inicia o cadastraDB enviando os values
-    db.cadastraDB()
-    navigation.navigate('Login')
-    */
   }
 
   return (
@@ -40,15 +38,15 @@ export default function Cadastro({ navigation }) {
       <Image source={logo} style={{ width: 350, height: 350, marginTop: 50 }} />
       <Text style={{ fontSize: 30, marginBottom: 40, marginLeft: '-40%', marginTop: '-10%' }}>Bem-vindo(a)</Text>
       <View style={styles.textInput}>
-        <Image source={usuario} style={{ marginRight: '5%' }} />
+        <Image source={usuarioImg} style={{ marginRight: '5%' }} />
         <TextInput onChangeText={(text) => setNome(text)} placeholder='nome...' style={{ color: '#A1A1A1', fontSize: 20 }}></TextInput>
       </View>
       <View style={styles.textInput}>
-        <Image source={email} style={{ marginRight: '5%' }} />
+        <Image source={emailImg} style={{ marginRight: '5%' }} />
         <TextInput onChangeText={(text) => setEmail(text)} placeholder='email...' style={{ color: '#A1A1A1', fontSize: 20 }}></TextInput>
       </View>
       <View style={styles.textInput}>
-        <Image source={senha} style={{ marginRight: '5%' }} />
+        <Image source={senhaImg} style={{ marginRight: '5%' }} />
         <TextInput secureTextEntry={true} onChangeText={(text) => setSenha(text)} placeholder='senha...' style={{ color: '#A1A1A1', fontSize: 20 }}></TextInput>
       </View>
       <View style={styles.botoes}>

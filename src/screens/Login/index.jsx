@@ -1,14 +1,16 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native'
 import logo from '../../assets/logo.png';
-import usuario from '../../assets/usuario.png';
-import email from '../../assets/email.png';
-import senha from '../../assets/senha.png';
+import emailImg from '../../assets/email.png';
+import senhaImg from '../../assets/senha.png';
+import CadastraUser from '../../db/db.jsx'
+const db = new CadastraUser();
 
 export default function Login({ navigation }) {
+  //arrumar o login como o cadastro
   const inputs = [
-    {id: 1, imagem: email, placeholder: ' Email...'},
-    {id: 2, imagem: senha, placeholder: ' Senha...'}
+    {id: 1, imagem: emailImg, placeholder: ' Email...'},
+    {id: 2, imagem: senhaImg, placeholder: ' Senha...'}
   ]
 
   return (
