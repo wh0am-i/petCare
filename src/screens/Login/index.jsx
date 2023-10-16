@@ -1,38 +1,62 @@
-import React from 'react'
-import { View, Text, Image, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import logo from '../../assets/logo.png';
 import emailImg from '../../assets/email.png';
 import senhaImg from '../../assets/senha.png';
-import CadastraUser from '../../db/db.jsx'
-const db = new CadastraUser();
+import CadastraUser from '../../db/db.jsx';
+
+const Db = new CadastraUser();
 
 export default function Login({ navigation }) {
-  //arrumar o login como o cadastro
-  const inputs = [
-    {id: 1, imagem: emailImg, placeholder: ' Email...'},
-    {id: 2, imagem: senhaImg, placeholder: ' Senha...'}
-  ]
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  async function login() {
+    if (email !== '' && senha !== '') {
+      if (await Db.login(email, senha)) {
+        navigation.navigate('CarteirinhaPet');
+      } else {
+        alert('Senha incorreta');
+      }
+    } else {
+      alert('Campos em branco');
+    }
+  }
 
   return (
     <View style={styles.container}>
-      <Image source={logo} style={{width: 350, height: 350, marginTop: 50}} />
-      <Text style={{fontSize: 30, marginBottom: 40, }}>Bem-vindo(a) de volta!</Text>
-        <FlatList
-          data={inputs}
-          renderItem={({item}) => (
-            <View style={styles.textInput}>
-              <Image source={item.imagem}/>
-              <TextInput placeholder={item.placeholder} style={{color: '#A1A1A1', fontSize: 20}}/>
-            </View>
-          )}
-          keyExtractor={item => item.id}
+      <View>
+        <Image source={logo} style={styles.logo} />
+        <Text style={styles.welcomeText}>Bem-vindo(a) de volta!</Text>
+      </View>
+
+      <View style={styles.textInput}>
+        <Image source={emailImg} style={styles.inputIcon} />
+        <TextInput
+          onChangeText={(text) => setEmail(text)}
+          placeholder="E-mail..."
+          style={styles.input}
         />
-        <TouchableOpacity onPress={() => navigation.navigate('CarteirinhaPet')}>
-            <Text style={styles.botao}>Entrar</Text>
+      </View>
+
+      <View style={styles.textInput}>
+        <Image source={senhaImg} style={styles.inputIcon} />
+        <TextInput
+          secureTextEntry={true}
+          onChangeText={(text) => setSenha(text)}
+          placeholder="Senha..."
+          style={styles.input}
+        />
+      </View>
+
+      <View>
+        <TouchableOpacity onPress={login}>
+          <Text style={styles.button}>Entrar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{ marginBottom: 120, marginTop: 20 }} onPress={() => navigation.navigate('Cadastro')}>
-            <Text style={styles}>Não possui cadastro?</Text>
+        <TouchableOpacity style={styles.link} onPress={() => navigation.navigate('Cadastro')}>
+          <Text>Não possui cadastro?</Text>
         </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -44,21 +68,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textInput: { 
+  logo: {
+    width: 350,
+    height: 350,
+    marginTop: -15,
+    marginBottom: 10,
+  },
+  welcomeText: {
+    fontSize: 30,
+    marginBottom: 40,
+    marginLeft: '5%',
+    marginTop: -25,
+  },
+  textInput: {
     flexDirection: 'row',
     marginVertical: 10,
-    justifyContent: 'space-between',
     borderBottomWidth: 2,
     borderBottomColor: '#D9D9D9',
-    paddingHorizontal: 100,
-    color: '#fff',
+    paddingHorizontal: 10,
+    alignItems: 'center', 
   },
-  botao: { 
+  inputIcon: {
+    marginRight: 10,
+  },
+  input: {
+    color: '#A1A1A1',
+    fontSize: 20,
+    flex: 1, 
+  },
+  button: {
     color: '#fff',
     backgroundColor: '#AB41DB',
     fontSize: 20,
     padding: 10,
     paddingHorizontal: 100,
-    borderRadius: 5
+    marginBottom: 15,
+    marginTop: 10,
+    borderRadius: 5,
+  },
+  link: {
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: 'center',
   },
 });

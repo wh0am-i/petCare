@@ -41,19 +41,19 @@ const styles = StyleSheet.create({
   },
   botaoUm: { 
     color: '#fff',
-    backgroundColor: '#4780B7',
-    fontSize: 20,
-    padding: 10,
-    paddingHorizontal: 100,
+    backgroundColor: '#f7f136',
+    fontSize: 25,
+    padding: 8,
+    paddingHorizontal: 90,
     marginBottom: 120,
     borderRadius: 5
   },
   botaoDois: { 
     color: '#fff',
-    backgroundColor: '#4780B7',
-    fontSize: 20,
-    padding: 10,
-    paddingHorizontal: 118,
+    backgroundColor: '#b136f7',
+    fontSize: 25,
+    padding: 8,
+    paddingHorizontal: 111,
     marginBottom: 20,
     borderRadius: 5
   },
