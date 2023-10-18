@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   logo: {
     width: 350,
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginBottom: 40,
     marginLeft: '5%',
+    marginTop: -25,
   },
   textInput: {
     flexDirection: 'row',
@@ -101,11 +103,13 @@ const styles = StyleSheet.create({
   },
   inputIcon: {
     marginRight: 10,
+    marginLeft: -9,
   },
   input: {
     color: '#A1A1A1',
     fontSize: 20,
     flex: 1,
+    marginLeft: -6
   },
   botao: {
     color: '#fff',

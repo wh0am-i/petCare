@@ -54,7 +54,7 @@ export default function Login({ navigation }) {
           <Text style={styles.button}>Entrar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.link} onPress={() => navigation.navigate('Cadastro')}>
-          <Text>Não possui cadastro?</Text>
+          <Text style={{ textAlign: 'center', marginTop: 5 }}>Não possui cadastro?</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   logo: {
     width: 350,
@@ -86,15 +87,17 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: '#D9D9D9',
     paddingHorizontal: 10,
-    alignItems: 'center', 
+    alignItems: 'center',
   },
   inputIcon: {
     marginRight: 10,
+    marginLeft: -9,
   },
   input: {
     color: '#A1A1A1',
     fontSize: 20,
-    flex: 1, 
+    flex: 1,
+    marginLeft: -6
   },
   button: {
     color: '#fff',
@@ -105,10 +108,5 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 10,
     borderRadius: 5,
-  },
-  link: {
-    marginBottom: 20,
-    marginTop: 20,
-    textAlign: 'center',
   },
 });
