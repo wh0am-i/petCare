@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Cadastro from './src/screens/Cadastro';
 import Login from './src/screens/Login';
 import ProdutosVenda from './src/screens/ProdutosVenda';
+import ProdutosVendaseg from './src/screens/ProdutosVendaseg';
 import Veterinario from './src/screens/Veterinario';
 import CadastraPet from './src/screens/CadastraPet';
 import AdocaoPets from './src/screens/AdocaoPets';
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name='Cadastro' component={Cadastro} />
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='ProdutosVenda' component={ProdutosVenda} />
+        <Stack.Screen name='ProdutosVendaseg' component={ProdutosVendaseg} />
         <Stack.Screen name='Veterinario' component={Veterinario} />
         <Stack.Screen name='CadastraPet' component={CadastraPet} />
         <Stack.Screen name='AdocaoPets' component={AdocaoPets} />
